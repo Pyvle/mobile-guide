@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +18,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText idName = findViewById(R.id.login);
+        Button entry = findViewById(R.id.entry);
+        Button registry = findViewById(R.id.registry);
+
+        entry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentEntry fragmentEntry = new FragmentEntry();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.container, fragmentEntry);
+                ft.commit();
+            }
+        });
+
+        registry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentReg fragmentReg = new FragmentReg();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.container, fragmentReg);
+                ft.commit();
+            }
+        });
+
+
+        /*EditText idName = findViewById(R.id.login);
         EditText idPas = findViewById(R.id.password);
 
         Button button = findViewById(R.id.button);
@@ -36,8 +61,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
-                }   
+                }
             }
-        });
+        });*/
+
+
+
     }
 }
