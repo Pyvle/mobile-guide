@@ -40,32 +40,5 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
             }
         });
-
-
-        /*EditText idName = findViewById(R.id.login);
-        EditText idPas = findViewById(R.id.password);
-
-        Button button = findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = idName.getText().toString();
-                String password = idPas.getText().toString();
-
-                if(TextUtils.isEmpty(username)||TextUtils.isEmpty(password))
-                    Toast.makeText(MainActivity.this, "Введите данные", Toast.LENGTH_SHORT).show();
-                else {
-                    if (username.equals("user") && password.equals("123")) {
-                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }
-            }
-        });*/
-
-
-
     }
 }
