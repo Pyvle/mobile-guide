@@ -6,7 +6,8 @@
         android:id="@+id/home"
         android:title="@string/home"
         android:orderInCategory="1"
-        app:showAsAction="never"/>
+        android:icon="@drawable/baseline_home_24"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/program"
         android:orderInCategory="3"

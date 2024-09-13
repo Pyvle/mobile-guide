@@ -2,11 +2,11 @@
 <resources>
     <string-array name="cities">
 
-        <item>Москва</item>
-        <item>Питер</item>
-        <item>Вегас</item>
-        <item>Комбоджм</item>
-        <item>Нигер</item>
+        <item>Завод "Экогаз"</item>
+        <item>Парк "Зелёная роща"</item>
+        <item>Река "Клязьма"</item>
+        <item>Трасса "М-7"</item>
+        <item>Промзона "Западная"</item>
 
     </string-array>
 

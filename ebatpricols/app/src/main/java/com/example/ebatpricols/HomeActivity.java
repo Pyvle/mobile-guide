@@ -21,7 +21,9 @@ import java.util.Arrays;
 public class HomeActivity extends AppCompatActivity {
     private ListView list;
     private String[] array;
-    private ArrayAdapter<String> adapter;
+    private int[] images = {R.drawable.i, R.drawable.i2, R.drawable.i3, R.drawable.i4, R.drawable.i5};
+
+    private MyAdapter adapter;
 
 
     @Override
@@ -35,7 +37,8 @@ public class HomeActivity extends AppCompatActivity {
         //Показ списка
         list = findViewById(R.id.listView);
         array = getResources().getStringArray(R.array.cities);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array)));
+
+        adapter = new MyAdapter(this, array, images);
         list.setAdapter(adapter);
 
         //показ верхней понели

@@ -16,21 +16,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Text_Content_Activity extends AppCompatActivity {
 
-    private TextView text_content;
+    private TextView text_content1;
+    private TextView text_content2;
+    private TextView text_content3;
+    private TextView text_content4;
+    private TextView text_content5;
     private ImageView iContent;
     private Toolbar toolbar;
     private int position = 0;
     private String[] array_title;
-    private int[] array_text = {R.string.text_1, R.string.text_2, R.string.text_3, R.string.text_4, R.string.text_5};
+    private String[] array_text;
     private int[] array_image = {R.drawable.i, R.drawable.i2, R.drawable.i3, R.drawable.i4, R.drawable.i5};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_content);
 
-        text_content = findViewById(R.id.main_text);
+        array_title =  getResources().getStringArray(R.array.cities);
+        array_text = new String[]{getString(R.string.text_1), getString(R.string.text_2), getString(R.string.text_3), getString(R.string.text_4), getString(R.string.text_5)};
+
+        text_content1 = findViewById(R.id.main_text_12);
+        text_content2 = findViewById(R.id.main_text_22);
+        text_content3 = findViewById(R.id.main_text_32);
+        text_content4 = findViewById(R.id.main_text_42);
+        text_content5 = findViewById(R.id.main_text_52);
         iContent = findViewById(R.id.main_image);
-        array_title = getResources().getStringArray(R.array.cities);
         reciveIntent();
 
         toolbar = findViewById(R.id.toolbar);
@@ -78,6 +88,13 @@ public class Text_Content_Activity extends AppCompatActivity {
             position = i.getIntExtra("position", 0);
 
         iContent.setImageResource(array_image[position]);
-        text_content.setText(array_text[position]);
+
+        String[] parts = array_text[position].split(":");
+        text_content1.setText(parts[0]);
+        text_content2.setText(parts[1]);
+        text_content3.setText(parts[2]);
+        text_content4.setText(parts[3]);
+        text_content5.setText(parts[4]);
+
     }
 }

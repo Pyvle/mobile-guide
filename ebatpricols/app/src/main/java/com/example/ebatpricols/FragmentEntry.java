@@ -22,10 +22,12 @@ public class FragmentEntry extends Fragment {
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonEntry;
+    private DataBaseClass dbClass;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dbClass = new DataBaseClass(getActivity());
     }
 
     @Override
@@ -47,10 +49,12 @@ public class FragmentEntry extends Fragment {
                 if(TextUtils.isEmpty(username) || TextUtils.isEmpty(password))
                     Toast.makeText(getActivity(), "Введите данные корректно", Toast.LENGTH_SHORT).show();
                 else {
-                     if(checkCredentials(username, password)) {
+                     if(dbClass.checkCredentials(username, password)) {
                          Intent intent = new Intent(getActivity(), HomeActivity.class);
                          startActivity(intent);
                          getActivity().finish();
+                     } else {
+                         Toast.makeText(getActivity(), "Неверное имя пользователя или пароль", Toast.LENGTH_SHORT).show();
                      }
                 }
 
