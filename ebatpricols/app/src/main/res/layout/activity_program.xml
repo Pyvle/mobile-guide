@@ -12,6 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/program_string"
-        android:textColor="@color/design_default_color_primary_variant"
-        android:textSize="34sp" />
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 </LinearLayout>
