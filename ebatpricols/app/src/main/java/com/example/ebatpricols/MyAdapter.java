@@ -11,16 +11,37 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class MyAdapter extends ArrayAdapter<String> {
     private final Context context;
-    private final String[] values;
-    private final int[] images;
+    private final ArrayList<String[]> values;
 
-    public MyAdapter(@NonNull Context context, String[] values, int[] images) {
-        super(context, R.layout.list_item, values);
+    public MyAdapter(@NonNull Context context, ArrayList<String[]> values) {
+        super(context, R.layout.list_item);
         this.context = context;
         this.values = values;
-        this.images = images;
+    }
+
+    @Override
+    public int getCount() {
+        return values.size();
+    }
+
+    // Метод для получения изображения в зависимости от типа объекта
+    private int getImageResource(String type) {
+        switch (type) {
+            case "Промышленный объект":
+                return R.drawable.ic_factory; // Изображение завода
+            case "Природный объект":
+                return R.drawable.ic_tree; // Изображение дерева
+            case "Транспортная инфраструктура":
+                return R.drawable.ic_road; // Изображение дороги
+            case "Природный водный объект":
+                return R.drawable.ic_water; // Изображение воды
+            default:
+                return R.drawable.ic_default; // Изображение по умолчанию
+        }
     }
 
     @NonNull
@@ -33,8 +54,10 @@ public class MyAdapter extends ArrayAdapter<String> {
         ImageView imageView = rowView.findViewById(R.id.item_image);
 
         // Устанавливаем текст и изображение для каждого элемента
-        textView.setText(values[position]);
-        imageView.setImageResource(images[position]);
+        textView.setText(values.get(position)[0]);
+
+        String type = values.get(position)[1];
+        imageView.setImageResource(getImageResource(type));
 
         return rowView;
     }

@@ -24,16 +24,13 @@ public class Text_Content_Activity extends AppCompatActivity {
     private ImageView iContent;
     private Toolbar toolbar;
     private int position = 0;
-    private String[] array_title;
-    private String[] array_text;
-    private int[] array_image = {R.drawable.i, R.drawable.i2, R.drawable.i3, R.drawable.i4, R.drawable.i5};
+
+    private String[] objectDetails;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_content);
 
-        array_title =  getResources().getStringArray(R.array.cities);
-        array_text = new String[]{getString(R.string.text_1), getString(R.string.text_2), getString(R.string.text_3), getString(R.string.text_4), getString(R.string.text_5)};
 
         text_content1 = findViewById(R.id.main_text_12);
         text_content2 = findViewById(R.id.main_text_22);
@@ -44,7 +41,7 @@ public class Text_Content_Activity extends AppCompatActivity {
         reciveIntent();
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(array_title[position]);
+        toolbar.setTitle(objectDetails[0]);
         setSupportActionBar(toolbar);
     }
 
@@ -85,16 +82,32 @@ public class Text_Content_Activity extends AppCompatActivity {
     private void reciveIntent() {
         Intent i = getIntent();
         if(i != null)
-            position = i.getIntExtra("position", 0);
+            objectDetails = i.getStringArrayExtra("object_info");
 
-        iContent.setImageResource(array_image[position]);
+        String objectType = objectDetails[1];
+        iContent.setImageResource(getImageResource(objectType));
 
-        String[] parts = array_text[position].split(":");
-        text_content1.setText(parts[0]);
-        text_content2.setText(parts[1]);
-        text_content3.setText(parts[2]);
-        text_content4.setText(parts[3]);
-        text_content5.setText(parts[4]);
+        text_content1.setText(objectDetails[0]);
+        text_content2.setText(objectDetails[1]);
+        text_content3.setText(objectDetails[2]);
+        text_content4.setText(objectDetails[3]);
+        text_content5.setText(objectDetails[4]);
 
+    }
+
+    // Метод для получения изображения по типу
+    private int getImageResource(String type) {
+        switch (type) {
+            case "Промышленный объект":
+                return R.drawable.ic_factory;
+            case "Природный объект":
+                return R.drawable.ic_tree;
+            case "Транспортная инфраструктура":
+                return R.drawable.ic_road;
+            case "Природный водный объект":
+                return R.drawable.ic_water;
+            default:
+                return R.drawable.ic_default;
+        }
     }
 }
