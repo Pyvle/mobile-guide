@@ -10,6 +10,19 @@
     <string name="program_string">Данная программа представляет собой мобильное приложение, информационно - справочная сисема "Контроль экологического состояния местности и объектов"</string>
     <string name="author_string">тут должен быть я</string>
 
+    <string-array name="roles_array">
+        <item>читатель</item>
+        <item>редактор</item>
+    </string-array>
+    <string-array name="item_type">
+        <item>Промышленный объект</item>
+        <item>Природный объект</item>
+        <item>Транспортная инфраструктура</item>
+        <item>Природный водный объект</item>
+    </string-array>
+
     <string name="sup">Не помните пароль?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

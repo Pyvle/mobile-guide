@@ -10,15 +10,17 @@ import android.widget.Toast;
 public class DataBaseClass extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "users.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
 
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_ROLE = "role";
 
     private static final String CREATE_TABLE_USERS = "CREATE TABLE " + TABLE_USERS + " (" +
             COLUMN_USERNAME + " TEXT PRIMARY KEY, " +
-            COLUMN_PASSWORD + " TEXT)";
+            COLUMN_PASSWORD + " TEXT," +
+            COLUMN_ROLE + " TEXT)";
 
     public  DataBaseClass(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,16 +33,16 @@ public class DataBaseClass extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        onCreate(db);
+            db.execSQL("ALTER TABLE " + TABLE_USERS + " ADD COLUMN role TEXT DEFAULT 'читатель'");
     }
 
-    public boolean addUser(String username, String password) {
+    public boolean addUser(String username, String password, String role) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USERNAME, username);
         values.put(COLUMN_PASSWORD, password);
+        values.put(COLUMN_ROLE, role);
 
         long result = db.insert(TABLE_USERS, null, values);
         return result != -1;
@@ -67,5 +69,19 @@ public class DataBaseClass extends SQLiteOpenHelper {
 
         cursor.close();
         return false;
+    }
+
+    public String getUserRole(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_USERS, new String[]{COLUMN_ROLE}, COLUMN_USERNAME + " = ?", new String[]{username}, null,null,null);
+
+        if(cursor.moveToFirst()) {
+            String role = cursor.getString(cursor.getColumnIndex(COLUMN_ROLE));
+            cursor.close();
+            return role;
+        }
+
+        cursor.close();
+        return null;
     }
 }

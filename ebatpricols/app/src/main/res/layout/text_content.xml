@@ -16,10 +16,6 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,134 +36,116 @@
 
                 </LinearLayout>
 
-                <TableLayout
+                <TextView
+                    android:id="@+id/main_text_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="16dp"
+                    android:text="Название объекта:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_text_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Название объекта1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_text_21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Тип объекта:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_text_22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Тип объекта1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_text_31"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Координаты:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/main_text_32"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Координаты1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/main_text_11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:paddingStart="16dp"
-                            android:textColor="@color/black"
-                            android:text="Название объекта" />
+                <TextView
+                    android:id="@+id/main_text_41"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Параметры контроля:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/main_text_12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:text="Название объекта" />
-                    </TableRow>
+                <TextView
+                    android:id="@+id/main_text_42"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Параметры контроля1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/main_text_51"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Метод измерения:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/main_text_21"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:paddingStart="16dp"
-                            android:text="Тип объекта" />
-
-                        <TextView
-                            android:id="@+id/main_text_22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:text="Тип объекта" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/main_text_31"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:paddingStart="16dp"
-                            android:textColor="@color/black"
-                            android:text="Координаты" />
-
-                        <TextView
-                            android:id="@+id/main_text_32"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:text="Координаты" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/main_text_41"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/black"
-                            android:layout_weight="1"
-                            android:paddingStart="16dp"
-                            android:text="Параметры контроля" />
-
-                        <TextView
-                            android:id="@+id/main_text_42"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:text="Параметры контроля" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/main_text_51"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:paddingStart="16dp"
-                            android:text="Метод измерения" />
-
-                        <TextView
-                            android:id="@+id/main_text_52"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:text="Метод измерения" />
-                    </TableRow>
-                </TableLayout>
-
+                <TextView
+                    android:id="@+id/main_text_52"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Метод измерения1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </LinearLayout>
-        </ScrollView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

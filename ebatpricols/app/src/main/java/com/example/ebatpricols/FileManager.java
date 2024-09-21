@@ -50,9 +50,9 @@ public class FileManager {
     }
 
     // Добавление записи в файл
-    public void addRecordToFile(String fileName, String record) {
+    public void addRecordToFile(String fileName, String[] record) {
         try (FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_APPEND)) {
-            fos.write((record + "\n").getBytes()); // Запись новой строки
+            fos.write((record[0] + ":" + record[1] + ":" + record[2] + ":" + record[3] + ":" + record[4] + "\n").getBytes()); // Запись новой строки
         } catch (IOException e) {
             e.printStackTrace();
         }

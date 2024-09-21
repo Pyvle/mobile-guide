@@ -50,7 +50,9 @@ public class FragmentEntry extends Fragment {
                     Toast.makeText(getActivity(), "Введите данные корректно", Toast.LENGTH_SHORT).show();
                 else {
                      if(dbClass.checkCredentials(username, password)) {
+                         String role = dbClass.getUserRole(username); // Получаем роль пользователя
                          Intent intent = new Intent(getActivity(), HomeActivity.class);
+                         intent.putExtra("user_role", role);
                          startActivity(intent);
                          getActivity().finish();
                      } else {

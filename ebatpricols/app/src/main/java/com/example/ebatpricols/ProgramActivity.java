@@ -36,6 +36,7 @@ public class ProgramActivity extends AppCompatActivity {
             Toast.makeText(this, "Список", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else if(id == R.id.instructions) {
