@@ -20,9 +20,8 @@ import java.util.Arrays;
 
 public class HomeActivity extends AppCompatActivity {
     private ListView list;
-    private String[] array;
-    private int[] images = {R.drawable.i, R.drawable.i2, R.drawable.i3, R.drawable.i4, R.drawable.i5};
-
+    private String fileName = "environment_data.txt";
+    private ArrayList<String[]> array;
     private MyAdapter adapter;
 
 
@@ -32,13 +31,17 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
         //Показ списка
         list = findViewById(R.id.listView);
-        array = getResources().getStringArray(R.array.cities);
+        FileManager fileManager = new FileManager(this);
 
-        adapter = new MyAdapter(this, array, images);
+        if(!fileManager.isFileValid(fileName)) {
+            fileManager.writeDataToFile(fileName);
+        }
+
+        array = fileManager.readDataFromFile(fileName);
+
+        adapter = new MyAdapter(this, array);
         list.setAdapter(adapter);
 
         //показ верхней понели
@@ -50,11 +53,10 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(HomeActivity.this, Text_Content_Activity.class);
-                intent.putExtra("position", position);
+                intent.putExtra("object_info", array.get(position));
                 startActivity(intent);
             }
         });
-
     }
 
     @Override
