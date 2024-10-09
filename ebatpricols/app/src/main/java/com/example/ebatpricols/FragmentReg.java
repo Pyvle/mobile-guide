@@ -95,5 +95,4 @@ public class FragmentReg extends Fragment {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
 }
